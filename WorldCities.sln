@@ -5,9 +5,13 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "WorldCities.Client", "src\WorldCities.Client\WorldCities.Client.esproj", "{1E9F59EA-AF00-4D74-9894-BAAC1A4056F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldCities.API", "src\WorldCities.API\WorldCities.API.csproj", "{4546D340-8B3D-4840-838C-DE881D233A9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorldCities.API", "src\WorldCities.API\WorldCities.API.csproj", "{4546D340-8B3D-4840-838C-DE881D233A9C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{36EA162B-B690-4B88-8CB5-FAC829D1F029}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldCities.Persistence", "src\WorldCities.Persistence\WorldCities.Persistence.csproj", "{2AE69770-9A5B-4DF8-BA84-83FCA84B3A91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldCities.Domain", "src\WorldCities.Domain\WorldCities.Domain.csproj", "{686C9A56-FA25-4FDE-8E0A-D89017235915}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +29,14 @@ Global
 		{4546D340-8B3D-4840-838C-DE881D233A9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4546D340-8B3D-4840-838C-DE881D233A9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4546D340-8B3D-4840-838C-DE881D233A9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AE69770-9A5B-4DF8-BA84-83FCA84B3A91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AE69770-9A5B-4DF8-BA84-83FCA84B3A91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AE69770-9A5B-4DF8-BA84-83FCA84B3A91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AE69770-9A5B-4DF8-BA84-83FCA84B3A91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{686C9A56-FA25-4FDE-8E0A-D89017235915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{686C9A56-FA25-4FDE-8E0A-D89017235915}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{686C9A56-FA25-4FDE-8E0A-D89017235915}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{686C9A56-FA25-4FDE-8E0A-D89017235915}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +44,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{1E9F59EA-AF00-4D74-9894-BAAC1A4056F4} = {36EA162B-B690-4B88-8CB5-FAC829D1F029}
 		{4546D340-8B3D-4840-838C-DE881D233A9C} = {36EA162B-B690-4B88-8CB5-FAC829D1F029}
+		{2AE69770-9A5B-4DF8-BA84-83FCA84B3A91} = {36EA162B-B690-4B88-8CB5-FAC829D1F029}
+		{686C9A56-FA25-4FDE-8E0A-D89017235915} = {36EA162B-B690-4B88-8CB5-FAC829D1F029}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A1E679C-2189-4B3D-BDDE-1E3074176534}
