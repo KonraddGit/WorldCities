@@ -55,6 +55,7 @@ public class ApiResult<T>
                 && sortOrder.ToUpper() == "ASC"
                 ? "ASC"
                 : "DESC";
+
             source = source.OrderBy(
                 string.Format(
                     "{0} {1}",
