@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 import { CitiesComponent } from './cities/cities.component';
 import { CountriesComponent } from './countries/countries.component';
-import { CityEditComponent } from './city-edit/city-edit.component';
+import { CityEditComponent } from './cities/city-edit.component';
 
 @NgModule({
   declarations: [
