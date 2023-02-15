@@ -2,7 +2,17 @@ table.mat-table {
   width: 100%;
 }
 
-.mat-form-field {
+.mat-mdc-form-field {
   font-size: 14px;
   width: 100%;
+}
+
+.paginator {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.mat-mdc-paginator-outer-container {
+  align-items: center;
+  justify-content: center;
 }
