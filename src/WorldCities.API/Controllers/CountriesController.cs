@@ -28,14 +28,15 @@ public class CountriesController : ControllerBase
         string? filterColumn = null,
         string? filterQuery = null)
         => await ApiResult<CountryDTO>.CreateAsync(
-                _context.Countries.AsNoTracking().Select(c => new CountryDTO()
-                {
-                    Id = c.Id,
-                    Name = c.Name,
-                    ISO2 = c.ISO2,
-                    ISO3 = c.ISO3,
-                    TotCities = c.Cities!.Count
-                }),
+                _context.Countries.AsNoTracking()
+                    .Select(c => new CountryDTO()
+                    {
+                        Id = c.Id,
+                        Name = c.Name,
+                        ISO2 = c.ISO2,
+                        ISO3 = c.ISO3,
+                        TotCities = c.Cities!.Count
+                    }),
                 pageIndex,
                 pageSize,
                 sortColumn,
