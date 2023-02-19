@@ -1,8 +1,11 @@
-<h1>Cities</h1>
-
-<p>Here's a list of cities: feel free to play with it.</p>
-
-<p *ngIf="!cities"><em>Loading...</em></p>
+<p *ngIf="!cities">
+  <mat-progress-spinner
+    class="progress-spinner"
+    color="primary"
+    mode="indeterminate"
+  >
+  </mat-progress-spinner>
+</p>
 
 <button
   mat-flat-button
@@ -14,7 +17,7 @@
   Add a new City
 </button>
 
-<mat-form-field [hidden]="!cities">
+<mat-form-field *ngIf="cities">
   <input
     matInput
     #filter

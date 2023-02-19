@@ -6,7 +6,6 @@ import { City } from './city';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { CityService } from './city.service';
-import { ApiResult } from '../base.service';
 
 @Component({
   selector: 'app-cities',
@@ -25,7 +24,7 @@ export class CitiesComponent implements OnInit {
 
   defaultPageIndex: number = 0;
   defaultPageSize: number = 10;
-  public defaultSortColumn: string = 'id';
+  public defaultSortColumn: string = 'name';
   public defaultSortOrder: 'asc' | 'desc' = 'asc';
 
   defaultFilterColumn: string = 'name';
