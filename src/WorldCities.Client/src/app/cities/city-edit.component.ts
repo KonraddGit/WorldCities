@@ -64,21 +64,7 @@ export class CityEditComponent extends BaseFormComponent implements OnInit {
       this.isDupeCity()
     );
 
-    //react to form changes
-    this.form.valueChanges.subscribe((val) => {
-      if (!this.form.dirty) {
-        this.log('Form Model has been loaded.');
-      } else {
-        this.log('Form was updated by the user');
-      }
-    });
-
     this.loadData();
-  }
-
-  log(str: string) {
-    this.activityLog +=
-      '[' + new Date().toLocaleString() + '] ' + str + '<br />';
   }
 
   loadData() {

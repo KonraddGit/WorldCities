@@ -1,9 +1,26 @@
+using Serilog;
+using Serilog.Events;
+using Serilog.Sinks.MSSqlServer;
 using WorldCities.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Adds Serilog support
+builder.Host.UseSerilog((ctx, lc) => lc
+    .ReadFrom.Configuration(ctx.Configuration)
+    .WriteTo.MSSqlServer(connectionString:
+                ctx.Configuration.GetConnectionString("DefaultConnection"),
+            restrictedToMinimumLevel: LogEventLevel.Information,
+            sinkOptions: new MSSqlServerSinkOptions
+            {
+                TableName = "LogEvents",
+                AutoCreateSqlTable = true
+            }
+            )
+    .WriteTo.Console()
+    );
 
+// Add services to the container.
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
