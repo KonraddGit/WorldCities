@@ -1,5 +1,6 @@
-html,
-body {
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
   height: 100%;
 }
 
@@ -20,21 +21,9 @@ table {
       background-color: #f4f4f4;
     }
 
-    th,
-    td {
+    th, td {
       text-align: left;
       padding: 5px 10px;
     }
   }
-}
-
-.paginator {
-  margin-top: 2rem;
-  width: 100%;
-}
-
-.mat-mdc-paginator {
-  margin-top: 1.5rem;
-  align-items: center;
-  justify-content: center;
 }

@@ -36,7 +36,7 @@ public class AccountController : ControllerBase
         {
             return Unauthorized(new LoginResult
             {
-                Succes = false,
+                Success = false,
                 Message = "Invalid Email or Password."
             });
         }
@@ -46,7 +46,7 @@ public class AccountController : ControllerBase
 
         return Ok(new LoginResult()
         {
-            Succes = true,
+            Success = true,
             Message = "Login successful",
             Token = jwt
         });

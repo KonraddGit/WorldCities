@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+// import { HttpClient, HttpParams } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  FormBuilder,
-  Validators,
-  AbstractControl,
-  AsyncValidatorFn,
-} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl, AsyncValidatorFn } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+
 import { Country } from './country';
 import { BaseFormComponent } from '../base-form.component';
 import { CountryService } from './country.service';
@@ -15,9 +12,11 @@ import { CountryService } from './country.service';
 @Component({
   selector: 'app-country-edit',
   templateUrl: './country-edit.component.html',
-  styleUrls: ['./country-edit.component.scss'],
+  styleUrls: ['./country-edit.component.scss']
 })
-export class CountryEditComponent extends BaseFormComponent implements OnInit {
+export class CountryEditComponent
+  extends BaseFormComponent implements OnInit {
+
   // the view title
   title?: string;
 
@@ -36,30 +35,37 @@ export class CountryEditComponent extends BaseFormComponent implements OnInit {
     private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private countryService: CountryService
-  ) {
+    private countryService: CountryService) {
     super();
   }
 
   ngOnInit() {
     this.form = this.fb.group({
-      name: ['', Validators.required, this.isDupeField('name')],
-      iso2: [
-        '',
-        [Validators.required, Validators.pattern(/^[a-zA-Z]{2}$/)],
-        this.isDupeField('iso2'),
+      name: ['',
+        Validators.required,
+        this.isDupeField("name")
       ],
-      iso3: [
-        '',
-        [Validators.required, Validators.pattern(/^[a-zA-Z]{3}$/)],
-        this.isDupeField('iso3'),
+      iso2: ['',
+        [
+          Validators.required,
+          Validators.pattern(/^[a-zA-Z]{2}$/)
+        ],
+        this.isDupeField("iso2")
       ],
+      iso3: ['',
+        [
+          Validators.required,
+          Validators.pattern(/^[a-zA-Z]{3}$/)
+        ],
+        this.isDupeField("iso3")
+      ]
     });
 
     this.loadData();
   }
 
   loadData() {
+
     // retrieve the ID from the 'id' parameter
     var idParam = this.activatedRoute.snapshot.paramMap.get('id');
     this.id = idParam ? +idParam : 0;
@@ -67,25 +73,23 @@ export class CountryEditComponent extends BaseFormComponent implements OnInit {
       // EDIT MODE
 
       // fetch the country from the server
-      this.countryService.get(this.id).subscribe(
-        (result) => {
-          this.country = result;
-          this.title = 'Edit - ' + this.country.name;
+      this.countryService.get(this.id).subscribe(result => {
+        this.country = result;
+        this.title = "Edit - " + this.country.name;
 
-          // update the form with the country value
-          this.form.patchValue(this.country);
-        },
-        (error) => console.error(error)
-      );
-    } else {
+        // update the form with the country value
+        this.form.patchValue(this.country);
+      }, error => console.error(error));
+    }
+    else {
       // ADD NEW MODE
 
-      this.title = 'Create a new Country';
+      this.title = "Create a new Country";
     }
   }
 
   onSubmit() {
-    var country = this.id ? this.country : <Country>{};
+    var country = (this.id) ? this.country : <Country>{};
     if (country) {
       country.name = this.form.controls['name'].value;
       country.iso2 = this.form.controls['iso2'].value;
@@ -93,43 +97,43 @@ export class CountryEditComponent extends BaseFormComponent implements OnInit {
 
       if (this.id) {
         // EDIT mode
-        this.countryService.put(country).subscribe(
-          (result) => {
-            console.log('Country ' + country!.id + ' has been updated.');
+        this.countryService
+          .put(country)
+          .subscribe(result => {
+
+            console.log("Country " + country!.id + " has been updated.");
 
             // go back to countries view
             this.router.navigate(['/countries']);
-          },
-          (error) => console.error(error)
-        );
-      } else {
+          }, error => console.error(error));
+      }
+      else {
         // ADD NEW mode
-        this.countryService.post(country).subscribe(
-          (result) => {
-            console.log('Country ' + result.id + ' has been created.');
+        this.countryService
+          .post(country)
+          .subscribe(result => {
+
+            console.log("Country " + result.id + " has been created.");
 
             // go back to countries view
             this.router.navigate(['/countries']);
-          },
-          (error) => console.error(error)
-        );
+          }, error => console.error(error));
       }
     }
   }
 
   isDupeField(fieldName: string): AsyncValidatorFn {
-    return (
-      control: AbstractControl
-    ): Observable<{
-      [key: string]: any;
+    return (control: AbstractControl): Observable<{
+      [key: string]: any
     } | null> => {
-      return this.countryService
-        .isDupeField(this.id ?? 0, fieldName, control.value)
-        .pipe(
-          map((result) => {
-            return result ? { isDupeField: true } : null;
-          })
-        );
-    };
+
+      return this.countryService.isDupeField(
+        this.id ?? 0,
+        fieldName,
+        control.value)
+        .pipe(map(result => {
+          return (result ? { isDupeField: true } : null);
+        }));
+    }
   }
 }

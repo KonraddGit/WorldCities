@@ -1,16 +1,18 @@
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 import { BaseService, ApiResult } from '../base.service';
 import { Observable } from 'rxjs';
 
 import { City } from './city';
-import { Country } from '../countries/country';
+import { Country } from './../countries/country';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CityService extends BaseService<City> {
-  constructor(http: HttpClient) {
+export class CityService
+  extends BaseService<City> {
+  constructor(
+    http: HttpClient) {
     super(http);
   }
 
@@ -22,37 +24,34 @@ export class CityService extends BaseService<City> {
     filterColumn: string | null,
     filterQuery: string | null
   ): Observable<ApiResult<City>> {
-    var url = this.getUrl('api/Cities');
+    var url = this.getUrl("api/Cities");
     var params = new HttpParams()
-      .set('pageIndex', pageIndex.toString())
-      .set('pageSize', pageSize.toString())
-      .set('sortColumn', sortColumn)
-      .set('sortOrder', sortOrder);
+      .set("pageIndex", pageIndex.toString())
+      .set("pageSize", pageSize.toString())
+      .set("sortColumn", sortColumn)
+      .set("sortOrder", sortOrder);
 
     if (filterColumn && filterQuery) {
       params = params
-        .set('filterColumn', filterColumn)
-        .set('filterQuery', filterQuery);
+        .set("filterColumn", filterColumn)
+        .set("filterQuery", filterQuery);
     }
 
     return this.http.get<ApiResult<City>>(url, { params });
   }
 
   get(id: number): Observable<City> {
-    var url = this.getUrl('api/Cities/' + id);
-
+    var url = this.getUrl("api/Cities/" + id);
     return this.http.get<City>(url);
   }
 
   put(item: City): Observable<City> {
-    var url = this.getUrl('api/Cities/' + item.id);
-
+    var url = this.getUrl("api/Cities/" + item.id);
     return this.http.put<City>(url, item);
   }
 
   post(item: City): Observable<City> {
-    var url = this.getUrl('api/Cities');
-
+    var url = this.getUrl("api/Cities");
     return this.http.post<City>(url, item);
   }
 
@@ -64,25 +63,24 @@ export class CityService extends BaseService<City> {
     filterColumn: string | null,
     filterQuery: string | null
   ): Observable<ApiResult<Country>> {
-    var url = this.getUrl('api/Countries');
+    var url = this.getUrl("api/Countries");
     var params = new HttpParams()
-      .set('pageIndex', pageIndex.toString())
-      .set('pageSize', pageSize.toString())
-      .set('sortColumn', sortColumn)
-      .set('sortOrder', sortOrder);
+      .set("pageIndex", pageIndex.toString())
+      .set("pageSize", pageSize.toString())
+      .set("sortColumn", sortColumn)
+      .set("sortOrder", sortOrder);
 
     if (filterColumn && filterQuery) {
       params = params
-        .set('filterColumn', filterColumn)
-        .set('filterQuery', filterQuery);
+        .set("filterColumn", filterColumn)
+        .set("filterQuery", filterQuery);
     }
 
     return this.http.get<ApiResult<Country>>(url, { params });
   }
 
   isDupeCity(item: City): Observable<boolean> {
-    var url = this.getUrl('api/Cities/isDupeCity');
-
+    var url = this.getUrl("api/Cities/IsDupeCity");
     return this.http.post<boolean>(url, item);
   }
 }

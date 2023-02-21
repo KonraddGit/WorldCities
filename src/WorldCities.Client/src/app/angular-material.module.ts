@@ -17,7 +17,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatPaginatorModule,
     MatSortModule,
     MatInputModule,
-    MatSelectModule,
+    MatSelectModule
   ],
   exports: [
     MatButtonModule,
@@ -27,7 +27,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatPaginatorModule,
     MatSortModule,
     MatInputModule,
-    MatSelectModule,
-  ],
+    MatSelectModule
+  ]
 })
-export class AngularMaterialModule {}
+export class AngularMaterialModule { }

@@ -3,7 +3,9 @@ import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
 
 export abstract class BaseService<T> {
-  constructor(protected http: HttpClient) {}
+  constructor(
+    protected http: HttpClient) {
+  }
 
   abstract getData(
     pageIndex: number,
@@ -11,8 +13,7 @@ export abstract class BaseService<T> {
     sortColumn: string,
     sortOrder: string,
     filterColumn: string | null,
-    filterQuery: string | null
-  ): Observable<ApiResult<T>>;
+    filterQuery: string | null): Observable<ApiResult<T>>;
 
   abstract get(id: number): Observable<T>;
   abstract put(item: T): Observable<T>;

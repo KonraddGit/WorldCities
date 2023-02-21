@@ -1,9 +1,11 @@
 const PROXY_CONFIG = [
   {
-    context: ["/api"],
+    context: [
+      "/api",
+    ],
     target: "https://localhost:40443",
-    secure: false,
-  },
-];
+    secure: false
+  }
+]
 
 module.exports = PROXY_CONFIG;

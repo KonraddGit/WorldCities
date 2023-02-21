@@ -13,23 +13,15 @@ const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'cities', component: CitiesComponent },
   { path: 'city/:id', component: CityEditComponent, canActivate: [AuthGuard] },
-  { path: 'city', component: CityEditComponent, canActivate: [AuthGuard] },
+  { path: 'city', component: CityEditComponent, canActivate: [AuthGuard]  },
   { path: 'countries', component: CountriesComponent },
-  {
-    path: 'country/:id',
-    component: CountryEditComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'country',
-    component: CountryEditComponent,
-    canActivate: [AuthGuard],
-  },
-  { path: 'login', component: LoginComponent },
+  { path: 'country/:id', component: CountryEditComponent, canActivate: [AuthGuard]  },
+  { path: 'country', component: CountryEditComponent, canActivate: [AuthGuard]  },
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
