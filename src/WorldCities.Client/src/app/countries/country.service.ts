@@ -1,9 +1,9 @@
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 import { BaseService, ApiResult } from '../base.service';
 import { Observable } from 'rxjs';
 
-import { Country } from '../countries/country';
+import { Country } from './country';
 
 @Injectable({
   providedIn: 'root',
@@ -39,19 +39,16 @@ export class CountryService extends BaseService<Country> {
 
   get(id: number): Observable<Country> {
     var url = this.getUrl('api/Countries/' + id);
-
     return this.http.get<Country>(url);
   }
 
   put(item: Country): Observable<Country> {
     var url = this.getUrl('api/Countries/' + item.id);
-
     return this.http.put<Country>(url, item);
   }
 
   post(item: Country): Observable<Country> {
     var url = this.getUrl('api/Countries');
-
     return this.http.post<Country>(url, item);
   }
 
@@ -65,7 +62,6 @@ export class CountryService extends BaseService<Country> {
       .set('fieldName', fieldName)
       .set('fieldValue', fieldValue);
     var url = this.getUrl('api/Countries/IsDupeField');
-
     return this.http.post<boolean>(url, null, { params });
   }
 }

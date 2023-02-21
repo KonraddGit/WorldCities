@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
 
 import { City } from './city';
 import { Country } from './../countries/country';
-import { BaseFormComponent } from '../base-form-component';
+import { BaseFormComponent } from '../base-form.component';
 import { CityService } from './city.service';
 
 @Component({

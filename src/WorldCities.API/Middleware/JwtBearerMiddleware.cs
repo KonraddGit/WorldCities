@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
+using WorldCities.Persistence.Handlers;
 
 namespace WorldCities.API.Middlewares;
 
@@ -23,10 +23,13 @@ public static class JwtBearerMiddleware
                 ValidateIssuerSigningKey = true,
                 ValidIssuer = configuration["JwtSettings:Issuer"],
                 ValidAudience = configuration["JwtSettings:Audience"],
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-                    configuration["JwtSettings:SecurityKey"]))
+                IssuerSigningKey = new SymmetricSecurityKey(
+                    System.Text.Encoding.UTF8.GetBytes(
+                        configuration["JwtSettings:SecurityKey"]))
             };
         });
+
+        services.AddScoped<JwtHandler>();
 
         return services;
     }

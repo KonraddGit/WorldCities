@@ -24,7 +24,7 @@ export class CitiesComponent implements OnInit {
 
   defaultPageIndex: number = 0;
   defaultPageSize: number = 10;
-  public defaultSortColumn: string = 'name';
+  public defaultSortColumn: string = 'id';
   public defaultSortOrder: 'asc' | 'desc' = 'asc';
 
   defaultFilterColumn: string = 'name';

@@ -5,19 +5,20 @@ import { FormGroup, AbstractControl } from '@angular/forms';
   template: '',
 })
 export abstract class BaseFormComponent {
+  // the form model
   form!: FormGroup;
 
   getErrors(
     control: AbstractControl,
     displayName: string,
-    customMessages: { [key: string]: string } | null = null
+    customMessages: { [k: string]: string } = {}
   ): string[] {
     var errors: string[] = [];
     Object.keys(control.errors || {}).forEach((key) => {
       switch (key) {
         case 'required':
           errors.push(
-            `${displayName} ${customMessages?.[key] ?? 'is required.'} `
+            `${displayName} ${customMessages?.[key] ?? 'is required.'}`
           );
           break;
         case 'pattern':
@@ -39,8 +40,8 @@ export abstract class BaseFormComponent {
           break;
       }
     });
-
     return errors;
   }
+
   constructor() {}
 }

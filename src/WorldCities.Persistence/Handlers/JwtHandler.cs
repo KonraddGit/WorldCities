@@ -14,7 +14,8 @@ public class JwtHandler
 
     public JwtHandler(
         IConfiguration configuration,
-        UserManager<ApplicationUser> userManager)
+        UserManager<ApplicationUser> userManager
+        )
     {
         _configuration = configuration;
         _userManager = userManager;
@@ -29,30 +30,29 @@ public class JwtHandler
             expires: DateTime.Now.AddMinutes(Convert.ToDouble(
                 _configuration["JwtSettings:ExpirationTimeInMinutes"])),
             signingCredentials: GetSigningCredentials());
-
         return jwtOptions;
     }
 
     private SigningCredentials GetSigningCredentials()
     {
-        var key = Encoding.UTF8.GetBytes(_configuration["JwtSettings:SecurityKey"]);
+        var key = Encoding.UTF8.GetBytes(
+            _configuration["JwtSettings:SecurityKey"]);
         var secret = new SymmetricSecurityKey(key);
-
-        return new SigningCredentials(secret, SecurityAlgorithms.HmacSha256);
+        return new SigningCredentials(secret,
+            SecurityAlgorithms.HmacSha256);
     }
 
-    private async Task<IEnumerable<Claim>> GetClaimsAsync(ApplicationUser user)
+    private async Task<List<Claim>> GetClaimsAsync(ApplicationUser user)
     {
         var claims = new List<Claim>
-        {
-            new Claim(ClaimTypes.Name, user.Email)
-        };
+            {
+                new Claim(ClaimTypes.Name, user.Email)
+            };
 
         foreach (var role in await _userManager.GetRolesAsync(user))
         {
             claims.Add(new Claim(ClaimTypes.Role, role));
         }
-
         return claims;
     }
 }

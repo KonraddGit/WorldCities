@@ -9,7 +9,7 @@ import {
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Country } from './country';
-import { BaseFormComponent } from '../base-form-component';
+import { BaseFormComponent } from '../base-form.component';
 import { CountryService } from './country.service';
 
 @Component({
