@@ -2,7 +2,7 @@
 using System.Linq.Dynamic.Core;
 using System.Reflection;
 
-namespace WorldCities.Persistence;
+namespace WorldCities.Persistence.Results;
 
 public class ApiResult<T>
 {
@@ -106,7 +106,7 @@ public class ApiResult<T>
     {
         get
         {
-            return (PageIndex > 0);
+            return PageIndex > 0;
         }
     }
 
@@ -114,7 +114,7 @@ public class ApiResult<T>
     {
         get
         {
-            return ((PageIndex + 1) < TotalPages);
+            return PageIndex + 1 < TotalPages;
         }
     }
 

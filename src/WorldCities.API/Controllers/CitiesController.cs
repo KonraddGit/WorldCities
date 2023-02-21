@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using WorldCities.Domain.DTOs;
 using WorldCities.Domain.Entities;
 using WorldCities.Persistence;
+using WorldCities.Persistence.Results;
 
 namespace WorldCitiesAPI.Controllers
 {

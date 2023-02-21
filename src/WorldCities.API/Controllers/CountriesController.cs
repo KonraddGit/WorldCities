@@ -4,6 +4,7 @@ using System.Linq.Dynamic.Core;
 using WorldCities.Domain.DTOs;
 using WorldCities.Domain.Entities;
 using WorldCities.Persistence;
+using WorldCities.Persistence.Results;
 
 namespace WorldCities.API.Controllers;
 
