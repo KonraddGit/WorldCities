@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\WorldCities.API\WorldCities.API.csproj" />
+    <ProjectReference Include="..\..\src\WorldCities.Persistence\WorldCities.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorldCities.Domain", "src\W
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7D9931E6-C0B3-45F9-9200-FEFC8C39825A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldCities.Tests", "tests\WorldCities.Tests\WorldCities.Tests.csproj", "{00E3C3B3-A789-44D4-9F80-792C65DA7657}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorldCities.UnitTests.API", "tests\WorldCities.Tests\WorldCities.UnitTests.API.csproj", "{00E3C3B3-A789-44D4-9F80-792C65DA7657}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
