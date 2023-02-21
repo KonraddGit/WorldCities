@@ -9,9 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorldCities.API", "src\Worl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{36EA162B-B690-4B88-8CB5-FAC829D1F029}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldCities.Persistence", "src\WorldCities.Persistence\WorldCities.Persistence.csproj", "{2AE69770-9A5B-4DF8-BA84-83FCA84B3A91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorldCities.Persistence", "src\WorldCities.Persistence\WorldCities.Persistence.csproj", "{2AE69770-9A5B-4DF8-BA84-83FCA84B3A91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldCities.Domain", "src\WorldCities.Domain\WorldCities.Domain.csproj", "{686C9A56-FA25-4FDE-8E0A-D89017235915}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorldCities.Domain", "src\WorldCities.Domain\WorldCities.Domain.csproj", "{686C9A56-FA25-4FDE-8E0A-D89017235915}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7D9931E6-C0B3-45F9-9200-FEFC8C39825A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldCities.Tests", "tests\WorldCities.Tests\WorldCities.Tests.csproj", "{7ECF2E84-FC10-408A-AFCF-BE19AD1F92AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +41,10 @@ Global
 		{686C9A56-FA25-4FDE-8E0A-D89017235915}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{686C9A56-FA25-4FDE-8E0A-D89017235915}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{686C9A56-FA25-4FDE-8E0A-D89017235915}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ECF2E84-FC10-408A-AFCF-BE19AD1F92AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ECF2E84-FC10-408A-AFCF-BE19AD1F92AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ECF2E84-FC10-408A-AFCF-BE19AD1F92AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ECF2E84-FC10-408A-AFCF-BE19AD1F92AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +54,7 @@ Global
 		{4546D340-8B3D-4840-838C-DE881D233A9C} = {36EA162B-B690-4B88-8CB5-FAC829D1F029}
 		{2AE69770-9A5B-4DF8-BA84-83FCA84B3A91} = {36EA162B-B690-4B88-8CB5-FAC829D1F029}
 		{686C9A56-FA25-4FDE-8E0A-D89017235915} = {36EA162B-B690-4B88-8CB5-FAC829D1F029}
+		{7ECF2E84-FC10-408A-AFCF-BE19AD1F92AC} = {7D9931E6-C0B3-45F9-9200-FEFC8C39825A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A1E679C-2189-4B3D-BDDE-1E3074176534}
