@@ -10,10 +10,14 @@ namespace WorldCitiesAPI.Controllers
     [ApiController]
     public class CitiesController : ControllerBase
     {
+        private readonly ILogger<CitiesController> _logger;
         private readonly ApplicationDbContext _context;
 
-        public CitiesController(ApplicationDbContext context)
+        public CitiesController(
+            ILogger<CitiesController> logger,
+            ApplicationDbContext context)
         {
+            _logger = logger;
             _context = context;
         }
 
@@ -82,6 +86,8 @@ namespace WorldCitiesAPI.Controllers
             {
                 if (!CityExists(id))
                 {
+                    _logger.LogInformation("City {0} not found", id);
+
                     return NotFound();
                 }
                 else
