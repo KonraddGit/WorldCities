@@ -21,7 +21,7 @@ public static class PersistenceServiceRegistration
             options.Password.RequireUppercase = true;
             options.Password.RequireNonAlphanumeric = true;
             options.Password.RequiredLength = 8;
-        });
+        }).AddEntityFrameworkStores<ApplicationDbContext>();
 
         services.AddScoped<JwtHandler>();
 
