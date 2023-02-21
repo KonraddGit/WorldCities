@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WorldCities.Persistence.Handlers;
 
 namespace WorldCities.Persistence;
 
@@ -21,6 +22,8 @@ public static class PersistenceServiceRegistration
             options.Password.RequireNonAlphanumeric = true;
             options.Password.RequiredLength = 8;
         });
+
+        services.AddScoped<JwtHandler>();
 
         return services;
     }
