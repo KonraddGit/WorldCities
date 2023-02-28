@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormGroup, FormControl, Validators, AbstractControl, AsyncValidatorFn } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators, AbstractControl, AsyncValidatorFn } from '@angular/forms';
 
 import { BaseFormComponent } from '../base-form.component';
 import { AuthService } from './auth.service';
@@ -26,9 +26,9 @@ export class LoginComponent
   }
 
   ngOnInit() {
-    this.form = new FormGroup({
-      email: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required)
+    this.form = new UntypedFormGroup({
+      email: new UntypedFormControl('', Validators.required),
+      password: new UntypedFormControl('', Validators.required)
       });
   }
 

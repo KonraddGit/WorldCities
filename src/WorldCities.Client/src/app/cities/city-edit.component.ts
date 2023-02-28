@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 // import { HttpClient, HttpParams } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormGroup, FormControl, Validators, AbstractControl, AsyncValidatorFn } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators, AbstractControl, AsyncValidatorFn } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 
@@ -46,17 +46,17 @@ export class CityEditComponent
   }
 
   ngOnInit() {
-    this.form = new FormGroup({
-      name: new FormControl('', Validators.required),
-      lat: new FormControl('', [
+    this.form = new UntypedFormGroup({
+      name: new UntypedFormControl('', Validators.required),
+      lat: new UntypedFormControl('', [
         Validators.required,
         Validators.pattern(/^[-]?[0-9]+(\.[0-9]{1,4})?$/)
       ]),
-      lon: new FormControl('', [
+      lon: new UntypedFormControl('', [
         Validators.required,
         Validators.pattern(/^[-]?[0-9]+(\.[0-9]{1,4})?$/)
       ]),
-      countryId: new FormControl('', Validators.required)
+      countryId: new UntypedFormControl('', Validators.required)
     }, null, this.isDupeCity());
 
     // react to form changes
